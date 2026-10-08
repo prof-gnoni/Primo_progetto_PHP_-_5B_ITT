@@ -48,12 +48,12 @@ if ($numeroStudenti > 0) {
 <ul>
     <!-- Iterazione su un array classico: mi basta l'elemento -->
     <?php foreach ($materie as $materia): ?>
-        <li><?= htmlspecialchars($materia) ?></li>
+        <li><?php echo htmlspecialchars($materia) ?></li>
     <?php endforeach; ?>
 </ul>
 
 <h2>Voti Informatica</h2>
-<p>Media della classe: <strong><?= number_format($media, 2, ',', '.') ?></strong></p>
+<p>Media della classe: <strong><?php echo number_format($media, 2, ',', '.') ?></strong></p>
 
 <table>
     <thead>
@@ -72,14 +72,18 @@ if ($numeroStudenti > 0) {
         <?php
         // Logica di stile: se il voto è < 6, preparo la classe CSS
         $classeCss = ($voto < 6) ? 'insufficiente' : '';
+        // if(voto < 6)
+        //  $classeCss = 'insufficiente';
+        // else
+        //  $classeCss = '';
         ?>
 
         <tr>
             <!-- Stampo la CHIAVE -->
-            <td><?= htmlspecialchars($cognome) ?></td>
+            <td><?php echo htmlspecialchars($cognome) ?></td>
 
             <!-- Stampo il VALORE applicando l'eventuale classe CSS -->
-            <td class="<?= $classeCss ?>"><?= $voto ?></td>
+            <td class="<?php echo $classeCss ?>"><?php echo $voto ?></td>
         </tr>
 
     <?php endforeach; ?>
